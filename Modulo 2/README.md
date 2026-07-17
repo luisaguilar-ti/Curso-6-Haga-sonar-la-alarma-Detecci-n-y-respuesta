@@ -24,17 +24,15 @@ Al finalizar este módulo serás capaz de:
 
 | Estado | Documento | Descripción |
 |:---:|---|---|
-| ⬜ | [01 - Monitoreo del tráfico de red](01-Monitoreo-del-trafico-de-red.md) | Conceptos fundamentales sobre el tráfico de red y su monitoreo. |
-| ⬜ | [02 - Paquetes de red](02-Paquetes-de-red.md) | Estructura de un paquete, encapsulamiento y transmisión de datos. |
-| ⬜ | [03 - Investigar los detalles del paquete](03-Investigar-los-detalles-del-paquete.md) | Encabezado IPv4, protocolos y análisis de la información contenida en un paquete. |
-| ⬜ | [04 - tcpdump](04-tcpdump.md) | Captura y análisis de tráfico desde la línea de comandos. |
-| ⬜ | [05 - Wireshark](05-Wireshark.md) | Análisis gráfico de paquetes y protocolos mediante Wireshark. |
-| ⬜ | [06 - Resumen del módulo](06-Resumen-del-Modulo.md) | Resumen de los conceptos principales del módulo. |
-| ⬜ | [07 - Glosario](07-Glosario.md) | Definiciones de los términos más importantes del módulo. |
-| ⬜ | [08 - Preguntas de repaso](08-Preguntas-de-Repaso.md) | Preguntas para reforzar el aprendizaje. |
-| ⬜ | [09 - Preguntas de entrevista](09-Preguntas-de-Entrevista.md) | Preguntas técnicas frecuentes relacionadas con el análisis de tráfico de red. |
-
----
+| ⬜ | [01 - Tráfico de red y Monitoreo](01-Trafico-de-red-y-Monitoreo.md) | Introducción al tráfico de red, monitoreo y conceptos fundamentales. |
+| ⬜ | [02 - Paquetes y Captura de Paquetes](02-Paquetes-y-Captura-de-Paquetes.md) | Estructura de los paquetes, encapsulamiento y captura de tráfico. |
+| ⬜ | [03 - Investigar los detalles del paquete](03-Investigar-los-detalles-del-paquete.md) | Análisis del encabezado IPv4, protocolos y campos del paquete. |
+| ⬜ | [04 - tcpdump](04-tcpdump.md) | Captura y análisis de tráfico mediante la herramienta tcpdump. |
+| ⬜ | [05 - Wireshark y Analizadores de Protocolo](05-Wireshark-y-Analizadores-de-Protocolo.md) | Análisis gráfico del tráfico de red utilizando Wireshark. |
+| ⬜ | [06 - Resumen del Módulo](06-Resumen-del-Modulo.md) | Resumen de todos los conceptos estudiados en el módulo. |
+| ⬜ | [07 - Glosario](07-Glosario.md) | Definiciones de los términos más importantes. |
+| ⬜ | [08 - Preguntas de Repaso](08-Preguntas-de-Repaso.md) | Preguntas para reforzar los conocimientos adquiridos. |
+| ⬜ | [09 - Preguntas de Entrevista](09-Preguntas-de-Entrevista.md) | Preguntas técnicas frecuentes relacionadas con el análisis de tráfico de red. |
 
 # 🧪 Laboratorios
 
