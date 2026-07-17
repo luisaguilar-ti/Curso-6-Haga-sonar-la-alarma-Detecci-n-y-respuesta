@@ -1,233 +1,112 @@
-# Curso 6 - Sound the Alarm: Detection and Response
-# Módulo 1 - Fundamentos de la Detección y Respuesta a Incidentes
+# Módulo 3: Detección de Incidentes y Respuesta
 
-> **Curso:** Google Cybersecurity Professional Certificate  
-> **Módulo:** 1 - Fundamentos de la Detección y Respuesta  
-> **Objetivo:** Comprender cómo las organizaciones detectan, investigan y responden a incidentes de seguridad utilizando procesos, equipos y herramientas especializadas.
+## Descripción
+
+En este módulo se estudian las metodologías, procesos y herramientas utilizadas para detectar, investigar y responder a incidentes de ciberseguridad. Se analizan los métodos de detección, los indicadores utilizados durante una investigación, las herramientas de inteligencia de amenazas, las buenas prácticas de documentación, el proceso de triaje, la continuidad del negocio y las actividades posteriores a un incidente.
 
 ---
 
-# Objetivos de aprendizaje
+# Objetivos
 
 Al finalizar este módulo serás capaz de:
 
-- Comprender qué es un incidente de seguridad.
-- Diferenciar un evento de un incidente.
-- Entender el ciclo de vida de respuesta a incidentes propuesto por NIST.
-- Identificar el papel de un analista SOC.
-- Comprender cómo funcionan las herramientas SIEM, SOAR, IDS, IPS y EDR.
-- Conocer el flujo básico de detección y respuesta dentro de un Centro de Operaciones de Seguridad.
+- Identificar los principales métodos de detección de incidentes.
+- Comprender la diferencia entre IoC e IoA.
+- Utilizar herramientas de investigación como VirusTotal.
+- Comprender la importancia de la documentación durante un incidente.
+- Explicar el proceso de triaje.
+- Comprender el propósito del Business Continuity Plan (BCP).
+- Identificar las actividades posteriores a un incidente.
 
 ---
 
-# ¿Qué es la respuesta a incidentes?
+# 📚 Contenido del módulo
 
-La **Respuesta a Incidentes (Incident Response, IR)** es el conjunto de procesos utilizados para identificar, investigar, contener, erradicar y recuperar una organización después de un incidente de ciberseguridad.
-
-Su objetivo principal es reducir el impacto del incidente y restaurar las operaciones de forma segura en el menor tiempo posible.
-
-No todos los eventos representan un incidente. Un analista debe determinar si un evento corresponde a una actividad normal o si representa una amenaza real.
-
----
-
-## Evento vs Incidente
-
-| Evento | Incidente |
-|---------|-----------|
-| Cualquier acción registrada en un sistema. | Evento que compromete la confidencialidad, integridad o disponibilidad de la información. |
-| Puede ser completamente normal. | Requiere investigación y respuesta. |
-| Ocurre constantemente. | Es una situación excepcional. |
-
-### Ejemplo
-
-**Evento**
-
-```text
-Usuario inicia sesión a las 08:15.
-```
-
-No representa ningún problema.
-
-**Incidente**
-
-```text
-El mismo usuario intenta iniciar sesión 2,000 veces desde tres países diferentes en cinco minutos.
-```
-
-Esto requiere una investigación inmediata.
+| Estado | Documento | Descripción |
+|:---:|---|---|
+| ⬜ | [01 - Métodos de Detección de Incidentes](01-Metodos-de-Deteccion-de-Incidentes.md) | IDS, SIEM, Threat Hunting, Threat Intelligence, TIP, Honeypots y otros métodos de detección. |
+| ⬜ | [02 - Indicadores de Compromiso e Indicadores de Ataque](02-Indicadores-de-Compromiso-e-Indicadores-de-Ataque.md) | IoC, IoA, Pirámide del Dolor y TTP. |
+| ⬜ | [03 - Herramientas de Investigación y VirusTotal](03-Herramientas-de-Investigacion-y-VirusTotal.md) | VirusTotal, MalwareBazaar, Urlscan.io, Jotti, OSINT y Crowdsourcing. |
+| ⬜ | [04 - Buenas Prácticas de Documentación](04-Buenas-Practicas-de-Documentacion.md) | Documentación de incidentes, transparencia y cadena de custodia. |
+| ⬜ | [05 - Proceso de Triaje](05-Proceso-de-Triaje.md) | Clasificación, priorización e investigación inicial de incidentes. |
+| ⬜ | [06 - Continuidad del Negocio y Recuperación](06-Continuidad-del-Negocio-y-Recuperacion.md) | Business Continuity Plan (BCP), resiliencia y sitios Hot, Warm y Cold. |
+| ⬜ | [07 - Actividad Posterior al Incidente](07-Actividad-Posterior-al-Incidente.md) | Lessons Learned, informe final y mejora continua. |
+| ⬜ | [08 - Resumen del Módulo](08-Resumen-del-Modulo.md) | Resumen de todos los conceptos estudiados. |
+| ⬜ | [09 - Glosario](09-Glosario.md) | Definiciones de los términos más importantes del módulo. |
+| ⬜ | [10 - Preguntas de Repaso](10-Preguntas-de-Repaso.md) | Preguntas para reforzar el aprendizaje. |
+| ⬜ | [11 - Preguntas de Entrevista](11-Preguntas-de-Entrevista.md) | Preguntas técnicas frecuentes sobre detección y respuesta a incidentes. |
 
 ---
 
-# Objetivos de la respuesta a incidentes
-
-Toda organización busca:
-
-- Detectar amenazas rápidamente.
-- Minimizar el daño.
-- Proteger la información.
-- Restaurar los servicios.
-- Evitar que el incidente vuelva a ocurrir.
-- Documentar todo el proceso.
-
----
-
-# Flujo general de respuesta a incidentes
-
-```text
-Actividad en la red
-        │
-        ▼
-Generación de eventos
-        │
-        ▼
-Recolección de logs
-        │
-        ▼
-SIEM
-        │
-        ▼
-Generación de alertas
-        │
-        ▼
-Analista SOC
-        │
-        ▼
-Investigación
-        │
-        ▼
-Contención
-        │
-        ▼
-Erradicación
-        │
-        ▼
-Recuperación
-```
-
----
-
-# El Centro de Operaciones de Seguridad (SOC)
-
-Un **Security Operations Center (SOC)** es el equipo responsable de supervisar continuamente la infraestructura tecnológica de una organización.
-
-Su misión consiste en detectar amenazas, investigar incidentes y coordinar la respuesta para minimizar riesgos.
-
-Un SOC opera las 24 horas del día en muchas organizaciones.
-
-## Funciones principales
-
-- Supervisar eventos de seguridad.
-- Analizar alertas.
-- Investigar actividades sospechosas.
-- Coordinar la respuesta a incidentes.
-- Mantener herramientas de monitoreo.
-- Elaborar informes.
-
----
-
-# Roles comunes dentro de un SOC
-
-| Rol | Función |
-|------|----------|
-| Analista SOC Nivel 1 | Monitoreo inicial y clasificación de alertas. |
-| Analista SOC Nivel 2 | Investigación profunda de incidentes. |
-| Analista SOC Nivel 3 | Amenazas avanzadas y malware. |
-| Incident Responder | Coordina la respuesta técnica. |
-| Threat Hunter | Busca amenazas que aún no han generado alertas. |
-| SOC Manager | Coordina el equipo y define procesos. |
-
----
-
-# Conceptos importantes
-
-## Detección
-
-Proceso mediante el cual se identifica una posible amenaza.
-
-Puede realizarse mediante:
+# 🛠️ Herramientas estudiadas
 
 - SIEM
 - IDS
-- IPS
-- EDR
-- Antivirus
-- Reglas personalizadas
+- Threat Intelligence Platform (TIP)
+- VirusTotal
+- MalwareBazaar
+- Urlscan.io
+- Jotti
+- Honeypots
 
 ---
 
-## Análisis
+# 📖 Conceptos principales
 
-Consiste en determinar si la alerta representa realmente un incidente.
-
-Durante esta etapa el analista responde preguntas como:
-
-- ¿Qué ocurrió?
-- ¿Cuándo ocurrió?
-- ¿Quién fue afectado?
-- ¿Cuál es el alcance?
-- ¿Es un falso positivo?
-
----
-
-## Contención
-
-Busca impedir que el incidente continúe propagándose.
-
-Ejemplos:
-
-- Aislar un equipo.
-- Bloquear una IP.
-- Deshabilitar una cuenta.
-- Cortar una conexión de red.
+- Detección de incidentes
+- Threat Hunting
+- Threat Intelligence
+- IoC
+- IoA
+- Pirámide del Dolor
+- TTP
+- OSINT
+- Crowdsourcing
+- Triaje
+- Cadena de Custodia
+- Business Continuity Plan (BCP)
+- Hot Site
+- Warm Site
+- Cold Site
+- Lessons Learned
 
 ---
 
-## Erradicación
+# 📂 Estructura del módulo
 
-Elimina completamente la causa del incidente.
-
-Ejemplos:
-
-- Eliminar malware.
-- Corregir vulnerabilidades.
-- Aplicar parches.
-- Restablecer credenciales.
-
----
-
-## Recuperación
-
-Consiste en restaurar los servicios afectados y verificar que el incidente no vuelva a aparecer.
-
-Ejemplos:
-
-- Restaurar respaldos.
-- Reincorporar servidores.
-- Validar funcionamiento.
-- Supervisar nuevamente el sistema.
+```text
+Modulo-3/
+│
+├── README.md
+├── 01-Metodos-de-Deteccion-de-Incidentes.md
+├── 02-Indicadores-de-Compromiso-e-Indicadores-de-Ataque.md
+├── 03-Herramientas-de-Investigacion-y-VirusTotal.md
+├── 04-Buenas-Practicas-de-Documentacion.md
+├── 05-Proceso-de-Triaje.md
+├── 06-Continuidad-del-Negocio-y-Recuperacion.md
+├── 07-Actividad-Posterior-al-Incidente.md
+├── 08-Resumen-del-Modulo.md
+├── 09-Glosario.md
+├── 10-Preguntas-de-Repaso.md
+├── 11-Preguntas-de-Entrevista.md
+│
+├── labs/
+└── assets/
+```
 
 ---
 
-# Resumen
+# 📚 Recursos recomendados
 
-En este módulo aprendiste:
-
-- La diferencia entre un evento y un incidente.
-- Qué es la respuesta a incidentes.
-- El propósito de un SOC.
-- Los roles principales de un equipo de seguridad.
-- El flujo general desde la detección hasta la recuperación.
+- NIST SP 800-61 Rev. 2
+- MITRE ATT&CK Framework
+- MITRE D3FEND
+- VirusTotal
+- MalwareBazaar
+- Urlscan.io
 
 ---
 
-## Próximo tema
+# 🎯 Conclusión
 
-En la siguiente parte del módulo profundizaremos en las herramientas utilizadas por un SOC:
-
-- SIEM
-- SOAR
-- IDS
-- IPS
-- EDR
-
-Analizaremos cómo funcionan, cuándo se utilizan y cómo trabajan juntas durante un incidente.
+En este módulo se desarrollan las competencias necesarias para detectar, investigar y responder a incidentes de ciberseguridad mediante metodologías reconocidas, herramientas de inteligencia de amenazas y buenas prácticas de documentación. Estos conocimientos constituyen la base del trabajo diario de un analista SOC y de un profesional de respuesta a incidentes.
